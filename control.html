@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Dispositivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-shield-lock-fill text-primary"></i> BiciSecure IoT</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Administración</a></li>
+                    <li class="nav-item"><a class="nav-link" href="monitoreo.html">Monitoreo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container py-4">
+        <h2><i class="bi bi-sliders"></i> <span id="deviceName">Cargando...</span></h2>
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-4">
+                <h5 class="card-title mb-4">Controles del Sistema</h5>
+                <div class="form-check form-switch mb-3 fs-5">
+                    <input class="form-check-input" type="checkbox" role="switch" id="systemStatusSwitch" style="height: 1.5em; width: 3em;">
+                    <label class="form-check-label pt-1" for="systemStatusSwitch">Sistema de Seguridad (ARMADO / DESARMADO)</label>
+                </div>
+                <div class="form-check form-switch fs-5">
+                    <input class="form-check-input" type="checkbox" role="switch" id="sirenSwitch" style="height: 1.5em; width: 3em;">
+                    <label class="form-check-label pt-1" for="sirenSwitch">Activar Sirena Manualmente</label>
+                </div>
+            </div>
+            <div class="card-footer" id="currentStatus"></div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h4 class="mb-0"><i class="bi bi-geo-alt-fill"></i> Ubicación del Dispositivo</h4>
+            <button id="refreshLocationBtn" class="btn btn-primary d-flex align-items-center gap-2">
+                <i class="bi bi-cursor-fill"></i> Actualizar con mi Ubicación
+            </button>
+        </div>
+        <div id="map" class="shadow-sm"></div>
+        
+        <a href="admin.html" class="btn btn-outline-secondary mt-4 d-flex align-items-center gap-2" style="width: fit-content;">
+            <i class="bi bi-arrow-left-circle"></i> Volver al Administrador
+        </a>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/control.js"></script>
+</body>
+</html>
